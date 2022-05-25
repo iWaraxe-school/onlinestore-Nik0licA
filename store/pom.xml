@@ -15,5 +15,14 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
+    <dependencies>
+
+        <dependency>
+            <artifactId>domain</artifactId>
+            <groupId>org.coherent</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
