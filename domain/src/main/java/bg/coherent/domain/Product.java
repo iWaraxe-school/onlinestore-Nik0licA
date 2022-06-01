@@ -23,5 +23,8 @@ public class Product {
         return price;
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("Product name:%s" +"\n"+ "Product price:%f "+"\n"+"Product rate: %f", name, price, rate);
+    }
 }
