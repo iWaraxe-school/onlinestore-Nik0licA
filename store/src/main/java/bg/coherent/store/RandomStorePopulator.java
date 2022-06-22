@@ -1,5 +1,7 @@
 package bg.coherent.store;
 import com.github.javafaker.Faker;
+import bg.coherent.domain.Category;
+
 public class RandomStorePopulator {
     Faker faker = new Faker();
     public String getProductName(CategoryNames category) {

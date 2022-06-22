@@ -1,6 +1,7 @@
 package bg.coherent.store;
 
 import bg.coherent.domain.Category;
+import bg.coherent.domain.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 
 public class Store {
-      // private List<Category> categoryList = new ArrayList<>();
+    private List<Category> categoryList = new ArrayList<>();
     Map<Category, Integer> categoryProductsMap;
     public void fillStore(Map<Category, Integer> categoryProductsMap) {
         RandomStorePopulator randomStorePopulator = new RandomStorePopulator();
@@ -21,7 +22,7 @@ public class Store {
         this.categoryProductsMap = categoryProductsMap;
     }
 
-    //public List<Category> getCategoryList() {
-    //   return categoryList;
+    public List<Category> getCategoryList() {
+       return categoryList;
     }
 }
