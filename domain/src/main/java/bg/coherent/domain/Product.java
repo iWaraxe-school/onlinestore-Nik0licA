@@ -25,6 +25,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("Product name:%s" +"\n"+ "Product price:%f "+"\n"+"Product rate: %f", name, price, rate);
+        return String.format(" {\n\tProduct name:%s" +"\n\t"+ "Product price:%f "+"\n\t"+"Product rate: %f\n\n}", name, price, rate);
     }
 }
