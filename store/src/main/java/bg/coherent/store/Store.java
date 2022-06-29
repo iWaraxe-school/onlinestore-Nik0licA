@@ -19,7 +19,7 @@ public class Store {
         return categoryList;
     }
 
-    public void prettyPrint() {
+    public void printStore() {
         System.out.println(getCategoryList());
     }
 }
