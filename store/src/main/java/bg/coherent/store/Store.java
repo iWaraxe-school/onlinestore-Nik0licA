@@ -18,6 +18,13 @@ public class Store {
 
         return categoryList;
     }
+    public List<Product> getAllProducts(){
+        List<Product> allProducts = new ArrayList<>();
+        for (Category category: categoryList){
+            allProducts.addAll(category.getProductList());
+        }
+        return allProducts;
+    }
 
     public void printStore() {
         System.out.println(getCategoryList());
