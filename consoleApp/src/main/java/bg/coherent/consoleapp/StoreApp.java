@@ -13,13 +13,11 @@ public class StoreApp {
     public static void main(String[] args) {
 
         Store store = new Store();
-        store.printStore();
+//        store.printStore();
         System.out.println(XmlParser.getConfig());
-        System.out.println(ProductComparator.sortedProducs(store));
+//        System.out.println(ProductComparator.sortedProducs(store));
 
         try {
-
-            Scanner scanner = new Scanner(System.in);
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             Boolean flag = true;

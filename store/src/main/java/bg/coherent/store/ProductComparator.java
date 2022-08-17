@@ -7,9 +7,9 @@ import java.util.*;
 
 public class ProductComparator {
 
-
     public static List<Product> sortedProducs(Store store) {
-        return sortProducts(XmlParser.getConfig(), store.getAllProducts());
+        return sortProducts(XmlParser.getConfig().descendingMap(), store.getAllProducts());
+
     }
     public static List<Product> topFive (Store store){
         HashMap<String, String> priceRule = new HashMap<>();
@@ -25,6 +25,11 @@ public class ProductComparator {
     }
     public static List<Product> sortProducts(Map<String, String> rules, List<Product> allProducts){
         for (Map.Entry<String, String> rule :rules.entrySet()){
+            System.out.print("--------------------------------");
+            System.out.println(rules.entrySet());
+            System.out.println(rule);
+            System.out.print("--------------------------------");
+
             switch(rule.getKey()){
                 case "name":
                     if(rule.getValue().equals("ASC")){
