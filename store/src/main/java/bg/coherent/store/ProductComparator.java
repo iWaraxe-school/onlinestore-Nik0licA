@@ -7,9 +7,9 @@ import java.util.*;
 
 public class ProductComparator {
 
-
     public static List<Product> sortedProducs(Store store) {
-        return sortProducts(XmlParser.getConfig(), store.getAllProducts());
+        return sortProducts(XmlParser.getConfig().descendingMap(), store.getAllProducts());
+
     }
     public static List<Product> topFive (Store store){
         HashMap<String, String> priceRule = new HashMap<>();
@@ -24,20 +24,28 @@ public class ProductComparator {
 
     }
     public static List<Product> sortProducts(Map<String, String> rules, List<Product> allProducts){
-        for (Map.Entry<String, String> rule :rules.entrySet()){
-            switch(rule.getKey()){
+        List<String> keys = new ArrayList<>(rules.keySet());
+        Collections.reverse(keys);
+        for (String key : keys){
+            String rule = rules.get(key);
+            System.out.print("--------------------------------");
+            System.out.println(rules.entrySet());
+            System.out.println(rule);
+            System.out.print("--------------------------------");
+
+            switch(key){
                 case "name":
-                    if(rule.getValue().equals("ASC")){
+                    if(rule.equals("ASC")){
                         allProducts.sort(Comparator.comparing(Product::getName));
                     } else{allProducts.sort(Comparator.comparing(Product::getName).reversed());}
                     break;
                 case "price":
-                    if(rule.getValue().equals("ASC")){
+                    if(rule.equals("ASC")){
                         allProducts.sort(Comparator.comparing(Product::getPrice));
                     } else{allProducts.sort(Comparator.comparing(Product::getPrice).reversed());}
                     break;
                 case "rate":
-                    if(rule.getValue().equals("ASC")){
+                    if(rule.equals("ASC")){
                         allProducts.sort(Comparator.comparing(Product::getRate));
                     } else{allProducts.sort(Comparator.comparing(Product::getRate).reversed());}
                     break;

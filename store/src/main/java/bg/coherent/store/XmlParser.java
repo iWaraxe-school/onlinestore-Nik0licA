@@ -12,11 +12,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
 public class XmlParser {
 
-    public static HashMap<String, String> getConfig() {
+    public static TreeMap<String, String> getConfig() {
 
-        HashMap<String, String> sortMap = new LinkedHashMap<>();
+        TreeMap<String, String> sortMap = new TreeMap<>();
         File xmlFile = new File("C:\\Users\\AleksandarNikolic\\onlinestore-Nik0licA\\store\\resources\\config.xml");
 
         try {
