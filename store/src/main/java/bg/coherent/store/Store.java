@@ -7,8 +7,21 @@ import java.util.List;
 import java.util.Map;
 
 public class Store {
+
+    private static Store instance;
+
+
+    public static Store getInstance() {
+        if (instance == null) ;
+        {
+            instance = new Store();
+        }
+        return instance;
+    }
+
+
     private List<Category> categoryList;
-    public Store() {
+    private Store() {
         RandomStorePopulator storePopulator = new RandomStorePopulator();
         categoryList = storePopulator.generateCategories();
 
