@@ -12,7 +12,7 @@ public class Store {
 
 
     public static Store getInstance() {
-        if (instance == null) ;
+        if (instance == null)
         {
             instance = new Store();
         }
