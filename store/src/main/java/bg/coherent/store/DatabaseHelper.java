@@ -62,8 +62,8 @@ public class DatabaseHelper {
         try {
             statement = getConnection().createStatement();
             String query = String.format("SELECT * FROM products WHERE category_id = (Select category_id FROM categories Where category_name = '%s')", category.getName());
-
             ResultSet resultSet = statement.executeQuery(query);
+            System.out.println("Category name: "+ category.getName());
             while (resultSet.next()) {
                 Product product = new Product(resultSet.getString("name"), resultSet.getDouble("price"), resultSet.getDouble("rate"));
                 productList.add(product);
@@ -116,6 +116,16 @@ public class DatabaseHelper {
         }
     }
 
+    public static void printStore(Store store){
+        List<Category> categories = store.getCategoryList();
+        System.out.println("-------------Printing store from database-------------");
+        for (Category category :categories){
+            System.out.println(DatabaseHelper.getProducts(category));
+        }
+        System.out.println("-------------------------------------");
+
+    }
+
     public static void initializeDb(Store store){
         DatabaseHelper.dropTable("categories");
         DatabaseHelper.dropTable("products");
@@ -128,5 +138,6 @@ public class DatabaseHelper {
             DatabaseHelper.fillDataBase(product_list,category.getName());
 
         }
+
     }
 }

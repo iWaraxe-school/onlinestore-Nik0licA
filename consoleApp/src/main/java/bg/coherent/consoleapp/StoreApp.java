@@ -15,6 +15,7 @@ public class StoreApp {
             Boolean flag = true;
             cleanThread.start();
             DatabaseHelper.initializeDb(store);
+            DatabaseHelper.printStore(store);
 
             while (flag) {
                 System.out.println("Enter one of following commands sort/top/quit/order:");
