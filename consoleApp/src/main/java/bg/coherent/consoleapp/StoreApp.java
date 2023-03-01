@@ -2,7 +2,6 @@ package bg.coherent.consoleapp;
 import bg.coherent.store.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
 public class StoreApp {
     public static void main(String[] args) {
 
@@ -16,7 +15,13 @@ public class StoreApp {
             cleanThread.start();
             DatabaseHelper.initializeDb(store);
             DatabaseHelper.printStore(store);
-
+            Server server = Server.getInstance();
+            server.startServer();
+            Client client = new Client();
+            client.printCategory();
+            client.printProducts();
+            client.AddCart();
+            client.ShowCart();
             while (flag) {
                 System.out.println("Enter one of following commands sort/top/quit/order:");
                 String command = reader.readLine();
@@ -48,6 +53,7 @@ public class StoreApp {
             System.out.println("Error: exception trown " + e.getMessage());
         }
         cleanThread.setExecuting(false);
+        Server.getInstance().stopServer();
     }
 
 }
