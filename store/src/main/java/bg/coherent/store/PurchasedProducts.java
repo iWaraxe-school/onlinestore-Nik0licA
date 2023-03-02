@@ -34,4 +34,5 @@ public class PurchasedProducts {
     public void printOrderList (){
         System.out.println("Current order list : " + orderList);
     }
+    public List<Product> getOrderList (){ return orderList;}
 }
